@@ -9,6 +9,14 @@ app.use(cors());
 
 const posts = require('./routes/api/posts');
 app.use('/api/posts', posts);
+if (process.env.NODE_ENV === 'prodiction') {
+	
+	app.use(express.static(__dirname + '/public/'));
+	app.get(/.*/, (req, res) => {
+		res.sendFile(__dirname+'/public/index.html')
+	})
+}
+
 
 // port
 const port = process.env.PORT || 5000;

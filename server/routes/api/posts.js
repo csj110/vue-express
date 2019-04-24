@@ -27,14 +27,14 @@ router.delete('/:id', async (req, res) => {
 });
 
 async function loadPostsCollection() {
-	// const client = await mongodb.MongoClient.connect(
-	// 	'mongodb+srv://user:19941110@cluster0-luzqb.azure.mongodb.net/test?retryWrites=true',
-	// 	{ useNewUrlParser: true }
-	// );
 	const client = await mongodb.MongoClient.connect(
-		'mongodb://localhost:27017',
+		'mongodb+srv://user:19941110@cluster0-luzqb.azure.mongodb.net/test?retryWrites=true',
 		{ useNewUrlParser: true }
 	);
+	// const client = await mongodb.MongoClient.connect(
+	// 	'mongodb://localhost:27017',
+	// 	{ useNewUrlParser: true }
+	// );
 	return client.db('vue_express').collection('posts');
 }
 
